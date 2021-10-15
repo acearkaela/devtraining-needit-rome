@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" sizeclass="11" type="collection">
+        <element label="MyField" max_length="80" name="u_field_name_6" type="field_name" use_dependent_field="true"/>
+        <element label="New HTML" max_length="65536" name="u_html_1" type="html"/>
+        <element attributes="edge_encryption_enabled=true" label="Link" max_length="1024" name="u_link" read_only="true" type="url"/>
         <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="u_other" type="string"/>
+        <element attributes="encode_utf8=false" dependent="u_link" dependent_on_field="u_link" label="New Reference" max_length="32" name="u_reference_1" reference="x_58872_needit_needit" type="reference" use_dependent_field="true"/>
+        <element attributes="encode_utf8=false" label="New Reference" max_length="32" name="u_reference_7" reference="cmdb_ci_appl_dot_net" type="reference"/>
         <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Requested for email" mandatory="true" max_length="40" name="u_requested_for_email" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
@@ -9,8 +14,12 @@
                 <element inactive_on_update="false" label="Human Resources" sequence="0" value="hr"/>
                 <element inactive_on_update="false" label="Facilities" sequence="1" value="facilities"/>
                 <element inactive_on_update="false" label="Legal" sequence="2" value="legal"/>
+                <element inactive_on_update="false" label="Other" sequence="3" value="other"/>
             </choice>
         </element>
+        <element attributes="edge_encryption_enabled=true" label="New String" max_length="40" name="u_string_3" type="string"/>
+        <element label="New Translated Text" max_length="40" name="u_translated_text_4" type="translated_text"/>
+        <element attributes="edge_encryption_enabled=true" label="New URL" max_length="1024" name="u_url_2" read_only="true" type="url"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="hr1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
             <choice>
                 <element inactive_on_update="false" label="Human Resources 1" sequence="0" value="hr1"/>
